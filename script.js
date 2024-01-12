@@ -9,16 +9,16 @@ function search() {
   loadingMessage.style.display = 'block';
   errorMessage.style.display = 'none';
   resultsContainer.innerHTML = '';
-
+  
   if (!searchTerm) {
     loadingMessage.style.display = 'none';
-    errorMessage.style.display = 'none';
+    errorMessage.style.display = 'none';    
     return;
   }
-
   clearTimeout(debounceTimeout);
   debounceTimeout = setTimeout(async () => {
     const currentSearchTerm = document.getElementById('searchInput').value.trim();
+    
 
     const apiUrl = `https://itunes.apple.com/search?term=${currentSearchTerm}&entity=song`;
 
