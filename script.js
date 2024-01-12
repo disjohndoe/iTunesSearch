@@ -43,6 +43,7 @@ function search() {
       loadingMessage.style.display = 'none';
       errorMessage.style.display = 'block';
       errorMessage.innerText = 'Error fetching data. Please try again.';
+      listItem.innerHTML = ''
     }
   }, 300);
 }
