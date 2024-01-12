@@ -9,16 +9,16 @@ function search() {
   loadingMessage.style.display = 'block';
   errorMessage.style.display = 'none';
   resultsContainer.innerHTML = '';
-
+  
   if (!searchTerm) {
     loadingMessage.style.display = 'none';
-    errorMessage.style.display = 'none';
+    errorMessage.style.display = 'none';    
     return;
   }
-
   clearTimeout(debounceTimeout);
   debounceTimeout = setTimeout(async () => {
     const currentSearchTerm = document.getElementById('searchInput').value.trim();
+    
 
     const apiUrl = `https://itunes.apple.com/search?term=${currentSearchTerm}&entity=song`;
 
@@ -31,6 +31,7 @@ function search() {
       if (data.results.length === 0) {
         errorMessage.style.display = 'block';
         errorMessage.innerText = 'No results found.';
+        listItem.innerHTML = ''
       } else {
         data.results.forEach(result => {
           const listItem = document.createElement('li');
@@ -42,6 +43,7 @@ function search() {
       loadingMessage.style.display = 'none';
       errorMessage.style.display = 'block';
       errorMessage.innerText = 'Error fetching data. Please try again.';
+      listItem.innerHTML = ''
     }
   }, 300);
 }
