@@ -31,6 +31,7 @@ function search() {
       if (data.results.length === 0) {
         errorMessage.style.display = 'block';
         errorMessage.innerText = 'No results found.';
+        listItem.innerHTML = ''
       } else {
         data.results.forEach(result => {
           const listItem = document.createElement('li');
