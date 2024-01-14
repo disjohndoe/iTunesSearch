@@ -6,6 +6,8 @@ function search() {
   const loadingMessage = document.getElementById('loading');
   const errorMessage = document.getElementById('error');
 
+  const listItem = document.createElement('li');
+  
   loadingMessage.style.display = 'block';
   errorMessage.style.display = 'none';
   resultsContainer.innerHTML = '';
@@ -15,6 +17,8 @@ function search() {
     errorMessage.style.display = 'none';    
     return;
   }
+  
+
   clearTimeout(debounceTimeout);
   debounceTimeout = setTimeout(async () => {
     const currentSearchTerm = document.getElementById('searchInput').value.trim();
